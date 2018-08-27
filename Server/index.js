@@ -1,13 +1,13 @@
 import express from 'express';
 import config from './config';
 import connectMiddlewares from './middlewares';
-import connectMongoose from './services/mongoose';
+import service from './services';
 import api from './api';
 
 const app = express();
 
 connectMiddlewares(app);
-connectMongoose();
+service();
 
 app.use('/api', api);
 
