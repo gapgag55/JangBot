@@ -1,11 +1,13 @@
 import express from 'express';
-import {
+import Homework from './homework.model';
+import Controller from '../controller';
+const router = express.Router();
+const {
   get,
   post,
   update,
-  remove
-} from './homework.model';
-const router = express.Router();
+  remove,
+} = Controller(Homework);
 
 router.get('/', get);
 router.post('/', post);

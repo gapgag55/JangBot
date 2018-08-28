@@ -1,11 +1,12 @@
 import express from 'express';
-import {
+import Subject from './subject.model';
+const router = express.Router();
+const {
   get,
   post,
   update,
-  remove
-} from './subject.model';
-const router = express.Router();
+  remove,
+} = Controller(Subject);
 
 router.get('/', get);
 router.post('/', post);

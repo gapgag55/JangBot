@@ -1,14 +1,14 @@
 export default (Model) => {
   const get = (req, res) => {
     Model.find((err, docs) => {
-      if (err) callback(err);
-      callback(docs)
+      if (err) res.send(err);
+      res.send(docs)
     });
   }
 
   const post = (req, res) => {
     const data = req.body;
-    const item = new Homework(data);
+    const item = new Model(data);
     item.save((error, item) => {
       if (error) res.send(error);
       res.send(item)
@@ -18,7 +18,7 @@ export default (Model) => {
   const update = (req, res) => {
     const { id } = req.params;
     const data = req.body;
-    Homework.findOneAndUpdate({_id: id}, {$set: data},
+    Model.findOneAndUpdate({_id: id}, {$set: data},
       (err, doc) => {
         if(err) res.send(err);
         res.send(doc);
@@ -27,7 +27,7 @@ export default (Model) => {
 
   const remove = (req, res) => {
     const { id } = req.params;
-    Homework.deleteOne({_id: id}, (err, doc) => {
+    Model.deleteOne({_id: id}, (err, doc) => {
       if(err) res.send(err);
       res.send(doc);
     });

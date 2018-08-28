@@ -2,7 +2,7 @@ import axios from 'axios';
 import cron from 'node-cron';
 import moment from 'moment';
 import config from '../config/line';
-import homeworkModel from '../api/homework/homework.model';
+import Homework from '../api/homework/homework.model';
 
 const sendPush = (to, messages) => {
   axios.post('https://api.line.me/v2/bot/message/push', {
@@ -38,7 +38,7 @@ const formatData = (docs) => {
 }
 
 export default () => {
-  homeworkModel.find((err, docs) => {
+  Homework.find((err, docs) => {
     if (err) return;
 
     const messages = [{

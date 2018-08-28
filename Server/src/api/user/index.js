@@ -1,11 +1,13 @@
 import express from 'express';
-import {
+import User from './user.model';
+import Controller from '../controller';
+const router = express.Router();
+const {
   get,
   post,
   update,
-  remove
-} from './user.model';
-const router = express.Router();
+  remove,
+} = Controller(User);
 
 router.get('/', get);
 router.post('/', post);

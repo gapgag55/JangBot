@@ -1,4 +1,6 @@
 import express from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
 import registerServices from './src/services';
 import api from './src/api';
 
