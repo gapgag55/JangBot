@@ -1,0 +1,42 @@
+export default (Model) => {
+  const get = (req, res) => {
+    Model.find((err, docs) => {
+      if (err) callback(err);
+      callback(docs)
+    });
+  }
+
+  const post = (req, res) => {
+    const data = req.body;
+    const item = new Homework(data);
+    item.save((error, item) => {
+      if (error) res.send(error);
+      res.send(item)
+    });
+  }
+
+  const update = (req, res) => {
+    const { id } = req.params;
+    const data = req.body;
+    Homework.findOneAndUpdate({_id: id}, {$set: data},
+      (err, doc) => {
+        if(err) res.send(err);
+        res.send(doc);
+      });
+  }
+
+  const remove = (req, res) => {
+    const { id } = req.params;
+    Homework.deleteOne({_id: id}, (err, doc) => {
+      if(err) res.send(err);
+      res.send(doc);
+    });
+  }
+
+  return {
+    get,
+    post,
+    update,
+    remove
+  };
+}

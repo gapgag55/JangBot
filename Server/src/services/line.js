@@ -1,7 +1,7 @@
 import axios from 'axios';
 import cron from 'node-cron';
 import moment from 'moment';
-import config from '../config';
+import config from '../config/line';
 import homeworkModel from '../api/homework/homework.model';
 
 const sendPush = (to, messages) => {
@@ -16,27 +16,38 @@ const sendPush = (to, messages) => {
   });
 };
 
+const formatData = (docs) => {
+  let text = '';
+  docs.forEach((item, index) => {
+    let {
+      subject,
+      description,
+      due_date
+    } = item;
+
+    subject = `Subject: ${subject}\n`;
+    description = `${description}\n`;
+    due_date = `Due: ${due_date}`;
+
+    if (index == docs.length - 1)
+      due_date = `${due_date}\n`;
+
+    text += `${subject}${description}${due_date}`;
+  });
+  return text;
+}
+
 export default () => {
   homeworkModel.find((err, docs) => {
     if (err) return;
 
-    let text = '';
-
-    docs.map(item => {
-      const { desc, due_date } = item;
-      const subject = 'Subject: '.concat(desc).concat('\n');
-      const due = 'Due: '.concat(due_date).concat('\n');
-      text += subject + due;
-      return item;
-    });
-
     const messages = [{
       type: 'text',
-      text,
+      text: formatData(docs),
     }];
 
     console.log(messages);
 
-    sendPush('Uaa7caad531b558caecf9fa249d3ee538', messages);
+    // sendPush('Uaa7caad531b558caecf9fa249d3ee538', messages);
   });
 }

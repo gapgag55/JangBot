@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import config from '../config';
+import config from '../config/database';
 
 export default () => {
   mongoose.connect(config.mongoURL)
