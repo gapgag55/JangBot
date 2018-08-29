@@ -10,7 +10,6 @@ export default (Model) => {
     const data = req.body;
     const item = new Model(data);
     item.save((error, item) => {
-      console.log(error, item);
       if (error) res.send(error);
       res.send(item)
     });
@@ -19,7 +18,6 @@ export default (Model) => {
   const update = (req, res) => {
     const { id } = req.params;
     const data = req.body;
-    console.log(data);
     Model.findOneAndUpdate({_id: id}, {$set: data},
       (err, doc) => {
         if(err) res.send(err);

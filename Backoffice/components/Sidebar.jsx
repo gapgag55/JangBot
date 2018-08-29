@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link'
 import { withRouter } from 'next/router'
 import { Layout, Menu, Icon } from 'antd';
-const { Sider, Footer } = Layout;
+const { Sider } = Layout;
 
 const Sidebar = ({ router }) => (
   <Sider theme="light">
@@ -25,6 +25,14 @@ const Sidebar = ({ router }) => (
           <a>
             <Icon type="notification" />
             <span>ระบบแจ้งข่าวสาร</span>
+          </a>
+        </Link>
+      </Menu.Item>
+      <Menu.Item key="/log">
+        <Link href="/log">
+          <a>
+            <Icon type="code-o" />
+            <span>ระบบสถานะ</span>
           </a>
         </Link>
       </Menu.Item>

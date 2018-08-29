@@ -5,5 +5,6 @@ export default {
     homework: `${url}/homework`,
     notification: `${url}/notification`,
     settings: `${url}/settings`,
+    logging: `${url}/logging`
   },
 };

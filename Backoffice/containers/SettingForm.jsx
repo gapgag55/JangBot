@@ -1,53 +1,38 @@
 import React, { Component } from 'react';
-import { Form, Input, Select, Button } from 'antd';
+import { Form, Input, Button } from 'antd';
+import request from '../utilities/request';
+import api from '../config/api';
 
 const FormItem = Form.Item;
 
 class HomeworkForm extends Component {
-  state = {
-    confirmDirty: false,
-    autoCompleteResult: [],
-  };
+  componentDidMount() {
+    this.getSetting();
+  }
+
+  getSetting = async () => {
+    const { form } = this.props;
+
+    // const { statusCode, data } = await request.get(api.url.settings);
+    // if (statusCode) {
+    //   const { channel_access_token, group_id } = data[0];
+
+    //   form.setFieldsValue({
+    //     channel_access_token,
+    //     group_id
+    //   });
+    // }
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.form.validateFieldsAndScroll((err, values) => {
+    this.props.form.validateFieldsAndScroll(async (err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        console.log(values);
+
+        this.getSetting();
       }
     });
-  }
-
-  handleConfirmBlur = (e) => {
-    const value = e.target.value;
-    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
-  }
-
-  compareToFirstPassword = (rule, value, callback) => {
-    const form = this.props.form;
-    if (value && value !== form.getFieldValue('password')) {
-      callback('Two passwords that you enter is inconsistent!');
-    } else {
-      callback();
-    }
-  }
-
-  validateToNextPassword = (rule, value, callback) => {
-    const form = this.props.form;
-    if (value && this.state.confirmDirty) {
-      form.validateFields(['confirm'], { force: true });
-    }
-    callback();
-  }
-
-  handleWebsiteChange = (value) => {
-    let autoCompleteResult;
-    if (!value) {
-      autoCompleteResult = [];
-    } else {
-      autoCompleteResult = ['.com', '.org', '.net'].map(domain => `${value}${domain}`);
-    }
-    this.setState({ autoCompleteResult });
   }
 
   render() {
@@ -83,12 +68,10 @@ class HomeworkForm extends Component {
           {...formItemLayout}
           label="Line Channel Access Token"
         >
-          {getFieldDecorator('channelAccessToken', {
+          {getFieldDecorator('channel_access_token', {
             rules: [{
-              type: 'text', message: 'The input is not valid E-mail!',
-            }, {
-              required: true, message: 'Please input your E-mail!',
-            }],
+              message: 'The input is not valid E-mail!',
+            }]
           })(
             <Input />
           )}
@@ -97,11 +80,9 @@ class HomeworkForm extends Component {
           {...formItemLayout}
           label="Group ID"
         >
-          {getFieldDecorator('groupID', {
+          {getFieldDecorator('group_id', {
             rules: [{
-              type: 'text', message: 'The input is not valid E-mail!',
-            }, {
-              required: true, message: 'Please input your E-mail!',
+              message: 'The input is not valid E-mail!',
             }],
           })(
             <Input />

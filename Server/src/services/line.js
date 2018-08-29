@@ -46,8 +46,6 @@ export default () => {
       text: formatData(docs),
     }];
 
-    console.log(messages);
-
     // sendPush('Uaa7caad531b558caecf9fa249d3ee538', messages);
   });
 }
