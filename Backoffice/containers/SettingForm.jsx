@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Form, Input, DatePicker, TimePicker, Select, Button } from 'antd';
+import { Form, Input, Select, Button } from 'antd';
 
 const FormItem = Form.Item;
-const Option = Select.Option;
 
 class HomeworkForm extends Component {
   state = {

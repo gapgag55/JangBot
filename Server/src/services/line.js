@@ -4,7 +4,7 @@ import moment from 'moment';
 import config from '../config/line';
 import Homework from '../api/homework/homework.model';
 
-const sendPush = (to, messages) => {
+export const sendPush = (to, messages) => {
   axios.post('https://api.line.me/v2/bot/message/push', {
     to,
     messages,

@@ -302,24 +302,41 @@ var Wrapper = function Wrapper(_ref) {
 
 /***/ }),
 
+/***/ "./config/api.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var url = 'http://localhost:4000/api';
+/* harmony default export */ __webpack_exports__["a"] = ({
+  url: {
+    homework: "".concat(url, "/homework"),
+    notification: "".concat(url, "/notification"),
+    settings: "".concat(url, "/settings")
+  }
+});
+
+/***/ }),
+
 /***/ "./containers/NotifyForm.jsx":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_antd_lib_button__ = __webpack_require__("antd/lib/button");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_antd_lib_button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_antd_lib_button__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_antd_lib_upload__ = __webpack_require__("antd/lib/upload");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_antd_lib_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_antd_lib_upload__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_antd_lib_icon__ = __webpack_require__("antd/lib/icon");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_antd_lib_icon___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_antd_lib_icon__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_antd_lib_input__ = __webpack_require__("antd/lib/input");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_antd_lib_input___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_antd_lib_input__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_antd_lib_input__ = __webpack_require__("antd/lib/input");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_antd_lib_input___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_antd_lib_input__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__babel_runtime_regenerator__ = __webpack_require__("@babel/runtime/regenerator");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_antd_lib_notification__ = __webpack_require__("antd/lib/notification");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_antd_lib_notification___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_antd_lib_notification__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_antd_lib_select__ = __webpack_require__("antd/lib/select");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_antd_lib_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_antd_lib_select__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_antd_lib_form__ = __webpack_require__("antd/lib/form");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_antd_lib_form___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_antd_lib_form__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utilities_request__ = __webpack_require__("./utilities/request.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__config_api__ = __webpack_require__("./config/api.js");
 
 
 
@@ -332,6 +349,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } } function _next(value) { step("next", value); } function _throw(err) { step("throw", err); } _next(); }); }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -343,6 +362,8 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+
 
 
 var FormItem = __WEBPACK_IMPORTED_MODULE_5_antd_lib_form___default.a.Item;
@@ -383,12 +404,52 @@ function (_Component) {
       writable: true,
       value: function value(e) {
         e.preventDefault();
+        var form = _this.props.form;
+        form.validateFieldsAndScroll(
+        /*#__PURE__*/
+        function () {
+          var _ref2 = _asyncToGenerator(
+          /*#__PURE__*/
+          __WEBPACK_IMPORTED_MODULE_2__babel_runtime_regenerator___default.a.mark(function _callee(err, values) {
+            var _ref3, statusCode, data, message;
 
-        _this.props.form.validateFieldsAndScroll(function (err, values) {
-          if (!err) {
-            console.log('Received values of form: ', values);
-          }
-        });
+            return __WEBPACK_IMPORTED_MODULE_2__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    form.resetFields();
+
+                    if (err) {
+                      _context.next = 9;
+                      break;
+                    }
+
+                    _context.next = 4;
+                    return __WEBPACK_IMPORTED_MODULE_7__utilities_request__["a" /* default */].post(__WEBPACK_IMPORTED_MODULE_8__config_api__["a" /* default */].url.notification, values);
+
+                  case 4:
+                    _ref3 = _context.sent;
+                    statusCode = _ref3.statusCode;
+                    data = _ref3.data;
+                    message = statusCode == 200 ? 'Send Message: Success' : 'Send Message: Fail';
+
+                    __WEBPACK_IMPORTED_MODULE_3_antd_lib_notification___default.a.open({
+                      message: message,
+                      description: data.text
+                    });
+
+                  case 9:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee, this);
+          }));
+
+          return function (_x, _x2) {
+            return _ref2.apply(this, arguments);
+          };
+        }());
       }
     }), _temp));
   }
@@ -431,115 +492,64 @@ function (_Component) {
         onSubmit: this.handleSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 64
         }
       }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
         label: "\u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 65
         }
       }), getFieldDecorator('type', {
         rules: [{
           required: true,
           message: 'Please select your gender!'
-        }]
+        }],
+        initialValue: 'text'
       })(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_antd_lib_select___default.a, {
-        placeholder: "Select an option and change input text above",
-        onChange: this.handleSelectChange,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 61
+          lineNumber: 73
         }
       }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(Option, {
         value: "text",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 74
         }
       }, "Text"), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(Option, {
         value: "image",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 75
         }
       }, "Image")))), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
         label: "\u0E02\u0E49\u0E2D\u0E04\u0E27\u0E32\u0E21\u0E2A\u0E48\u0E07\u0E16\u0E36\u0E07",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 79
         }
-      }), getFieldDecorator('subject', {
+      }), getFieldDecorator('text', {
         rules: [{
-          type: 'text',
-          message: 'The input is not valid E-mail!'
-        }, {
-          required: true,
-          message: 'Please input your E-mail!'
+          message: 'Please input text!'
         }]
-      })(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_antd_lib_input___default.a.TextArea, {
+      })(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_antd_lib_input___default.a.TextArea, {
         rows: 10,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 81
+          lineNumber: 86
         }
-      }))), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
-        label: "Dragger",
+      }))), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(FormItem, _extends({}, tailFormItemLayout, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84
-        }
-      }), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("div", {
-        className: "dropbox",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 88
-        }
-      }, getFieldDecorator('dragger', {
-        valuePropName: 'fileList',
-        getValueFromEvent: this.normFile
-      })(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_antd_lib_upload___default.a.Dragger, {
-        name: "files",
-        action: "/upload.do",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 93
-        }
-      }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("p", {
-        className: "ant-upload-drag-icon",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 94
-        }
-      }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_antd_lib_icon___default.a, {
-        type: "inbox",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 95
-        }
-      })), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("p", {
-        className: "ant-upload-text",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 97
-        }
-      }, "Click or drag file to this area to upload"), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("p", {
-        className: "ant-upload-hint",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 98
-        }
-      }, "Support for a single or bulk upload."))))), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(FormItem, _extends({}, tailFormItemLayout, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 103
+          lineNumber: 108
         }
       }), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_antd_lib_button___default.a, {
         type: "primary",
         htmlType: "submit",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 104
+          lineNumber: 109
         }
       }, "Push Message")));
     }
@@ -599,11 +609,215 @@ var Home = function Home() {
 
 /***/ }),
 
+/***/ "./utilities/request.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__ = __webpack_require__("@babel/runtime/regenerator");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch__ = __webpack_require__("isomorphic-unfetch");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch__);
+
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } } function _next(value) { step("next", value); } function _throw(err) { step("throw", err); } _next(); }); }; }
+
+
+
+var get =
+/*#__PURE__*/
+function () {
+  var _ref = _asyncToGenerator(
+  /*#__PURE__*/
+  __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee(url) {
+    var res, statusCode, json;
+    return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return __WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch___default()(url);
+
+          case 2:
+            res = _context.sent;
+            statusCode = res.statusCode > 200 ? res.statusCode : 200;
+            _context.next = 6;
+            return res.json();
+
+          case 6:
+            json = _context.sent;
+            return _context.abrupt("return", {
+              statusCode: statusCode,
+              data: json
+            });
+
+          case 8:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, this);
+  }));
+
+  return function get(_x) {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+var post =
+/*#__PURE__*/
+function () {
+  var _ref2 = _asyncToGenerator(
+  /*#__PURE__*/
+  __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee2(url, data) {
+    var res, statusCode, json;
+    return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return __WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch___default()(url, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+            });
+
+          case 2:
+            res = _context2.sent;
+            statusCode = res.statusCode > 200 ? res.statusCode : 200;
+            _context2.next = 6;
+            return res.json();
+
+          case 6:
+            json = _context2.sent;
+            return _context2.abrupt("return", {
+              statusCode: statusCode,
+              data: json
+            });
+
+          case 8:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2, this);
+  }));
+
+  return function post(_x2, _x3) {
+    return _ref2.apply(this, arguments);
+  };
+}();
+
+var update =
+/*#__PURE__*/
+function () {
+  var _ref3 = _asyncToGenerator(
+  /*#__PURE__*/
+  __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee3(url, id, data) {
+    var res, statusCode, json;
+    return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.next = 2;
+            return __WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch___default()(url.concat('/' + id), {
+              method: 'PUT',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+            });
+
+          case 2:
+            res = _context3.sent;
+            statusCode = res.statusCode > 200 ? res.statusCode : 200;
+            _context3.next = 6;
+            return res.json();
+
+          case 6:
+            json = _context3.sent;
+            return _context3.abrupt("return", {
+              statusCode: statusCode,
+              data: json
+            });
+
+          case 8:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3, this);
+  }));
+
+  return function update(_x4, _x5, _x6) {
+    return _ref3.apply(this, arguments);
+  };
+}();
+
+var remove =
+/*#__PURE__*/
+function () {
+  var _ref4 = _asyncToGenerator(
+  /*#__PURE__*/
+  __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee4(url, id) {
+    var res, statusCode, json;
+    return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _context4.next = 2;
+            return __WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch___default()(url.concat('/' + id), {
+              method: 'DELETE'
+            });
+
+          case 2:
+            res = _context4.sent;
+            statusCode = res.statusCode > 200 ? res.statusCode : 200;
+            _context4.next = 6;
+            return res.json();
+
+          case 6:
+            json = _context4.sent;
+            return _context4.abrupt("return", {
+              statusCode: statusCode,
+              data: json
+            });
+
+          case 8:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4, this);
+  }));
+
+  return function remove(_x7, _x8) {
+    return _ref4.apply(this, arguments);
+  };
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  get: get,
+  post: post,
+  update: update,
+  remove: remove
+});
+
+/***/ }),
+
 /***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/notification.js");
 
+
+/***/ }),
+
+/***/ "@babel/runtime/regenerator":
+/***/ (function(module, exports) {
+
+module.exports = require("@babel/runtime/regenerator");
 
 /***/ }),
 
@@ -649,6 +863,13 @@ module.exports = require("antd/lib/menu");
 
 /***/ }),
 
+/***/ "antd/lib/notification":
+/***/ (function(module, exports) {
+
+module.exports = require("antd/lib/notification");
+
+/***/ }),
+
 /***/ "antd/lib/select":
 /***/ (function(module, exports) {
 
@@ -656,10 +877,10 @@ module.exports = require("antd/lib/select");
 
 /***/ }),
 
-/***/ "antd/lib/upload":
+/***/ "isomorphic-unfetch":
 /***/ (function(module, exports) {
 
-module.exports = require("antd/lib/upload");
+module.exports = require("isomorphic-unfetch");
 
 /***/ }),
 

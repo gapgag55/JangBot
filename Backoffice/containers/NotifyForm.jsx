@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Form, Input, Select, Button, Upload, Icon } from 'antd';
+import { Form, Input, Select, Button, Upload, Icon, notification } from 'antd';
+import request from '../utilities/request';
+import api from '../config/api';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -15,9 +17,18 @@ class NotifyForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.form.validateFieldsAndScroll((err, values) => {
+    const { form } = this.props;
+    form.validateFieldsAndScroll(async (err, values) => {
+      form.resetFields();
+
       if (!err) {
-        console.log('Received values of form: ', values);
+        const { statusCode, data } = await request.post(api.url.notification, values)
+        const message = statusCode == 200 ? 'Send Message: Success' : 'Send Message: Fail';
+
+        notification.open({
+          message: message,
+          description: data.text
+        });
       }
     });
   }
@@ -57,11 +68,9 @@ class NotifyForm extends Component {
         >
           {getFieldDecorator('type', {
             rules: [{ required: true, message: 'Please select your gender!' }],
+            initialValue: 'text'
           })(
-            <Select
-              placeholder="Select an option and change input text above"
-              onChange={this.handleSelectChange}
-            >
+            <Select>
               <Option value="text">Text</Option>
               <Option value="image">Image</Option>
             </Select>
@@ -71,17 +80,13 @@ class NotifyForm extends Component {
           {...formItemLayout}
           label="ข้อความส่งถึง"
         >
-          {getFieldDecorator('subject', {
-            rules: [{
-              type: 'text', message: 'The input is not valid E-mail!',
-            }, {
-              required: true, message: 'Please input your E-mail!',
-            }],
+          {getFieldDecorator('text', {
+            rules: [{ message: 'Please input text!' }],
           })(
             <Input.TextArea rows={10} />
           )}
         </FormItem>
-        <FormItem
+        {/* <FormItem
           {...formItemLayout}
           label="Dragger"
         >
@@ -99,7 +104,7 @@ class NotifyForm extends Component {
               </Upload.Dragger>
             )}
           </div>
-        </FormItem>
+        </FormItem> */}
         <FormItem {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit">Push Message</Button>
         </FormItem>

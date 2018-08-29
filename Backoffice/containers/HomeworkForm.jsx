@@ -1,58 +1,23 @@
 import React, { Component } from 'react';
 import { Form, Input, DatePicker, TimePicker, Select, Button } from 'antd';
+import moment from 'moment';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
 
 class HomeworkForm extends Component {
-  state = {
-    confirmDirty: false,
-    autoCompleteResult: [],
-  };
-
-  handleSubmit = (e) => {
+  onSubmit = (e) => {
     e.preventDefault();
-    this.props.form.validateFieldsAndScroll((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
-  }
+    const { form, onSubmit, onUpdate, isUpdate } = this.props;
 
-  handleConfirmBlur = (e) => {
-    const value = e.target.value;
-    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
-  }
-
-  compareToFirstPassword = (rule, value, callback) => {
-    const form = this.props.form;
-    if (value && value !== form.getFieldValue('password')) {
-      callback('Two passwords that you enter is inconsistent!');
-    } else {
-      callback();
-    }
-  }
-
-  validateToNextPassword = (rule, value, callback) => {
-    const form = this.props.form;
-    if (value && this.state.confirmDirty) {
-      form.validateFields(['confirm'], { force: true });
-    }
-    callback();
-  }
-
-  handleWebsiteChange = (value) => {
-    let autoCompleteResult;
-    if (!value) {
-      autoCompleteResult = [];
-    } else {
-      autoCompleteResult = ['.com', '.org', '.net'].map(domain => `${value}${domain}`);
-    }
-    this.setState({ autoCompleteResult });
+    if (isUpdate)
+      return onUpdate(form);
+   return  onSubmit(form);
   }
 
   render() {
-    const { getFieldDecorator } = this.props.form;
+    const{ form, isUpdate } = this.props;
+    const { getFieldDecorator } = form;
 
     const formItemLayout = {
       labelCol: {
@@ -79,14 +44,14 @@ class HomeworkForm extends Component {
     };
 
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.onSubmit}>
         <FormItem
           {...formItemLayout}
           label="ชื่อวิชา"
         >
           {getFieldDecorator('subject', {
             rules: [{
-              type: 'text', message: 'The input is not valid E-mail!',
+              message: 'The input is not valid E-mail!',
             }, {
               required: true, message: 'Please input your E-mail!',
             }],
@@ -100,9 +65,7 @@ class HomeworkForm extends Component {
         >
           {getFieldDecorator('description', {
             rules: [{
-              type: 'text', message: 'The input is not valid E-mail!',
-            }, {
-              required: true, message: 'Please input your E-mail!',
+              required: true, message: 'Please input description',
             }],
           })(
             <Input />
@@ -115,12 +78,10 @@ class HomeworkForm extends Component {
           {getFieldDecorator('type', {
             rules: [{ required: true, message: 'Please select your gender!' }],
           })(
-            <Select
-              placeholder="Select a option and change input text above"
-              onChange={this.handleSelectChange}
-            >
+            <Select>
               <Option value="assignment">Assignment</Option>
               <Option value="quiz">Quiz</Option>
+              <Option value="project">Project</Option>
             </Select>
           )}
         </FormItem>
@@ -128,10 +89,10 @@ class HomeworkForm extends Component {
           {...formItemLayout}
           label="วันกำหนดส่ง"
         >
-          {getFieldDecorator('date-picker', {
+          {getFieldDecorator('date', {
             rules: [{
               type: 'object', required: true, message: 'Please select time!'
-            }]
+            }],
           })(
             <DatePicker />
           )}
@@ -140,7 +101,7 @@ class HomeworkForm extends Component {
           {...formItemLayout}
           label="เวลากำหนดส่ง"
         >
-          {getFieldDecorator('time-picker', {
+          {getFieldDecorator('time', {
             rules: [{
               type: 'object', required: true, message: 'Please select time!'
             }]
@@ -152,22 +113,30 @@ class HomeworkForm extends Component {
           {...formItemLayout}
           label="แจ้งเตือนล่วงหน้า (วัน)"
         >
-          {getFieldDecorator('beforehand', {
+          {getFieldDecorator('appointment', {
             rules: [{
-              type: 'number', message: 'The input is not valid E-mail!',
-            }, {
-              required: true, message: 'Please input your E-mail!',
+              required: true,  message: 'Please input appointment'
             }],
           })(
-            <Input />
+            <Select>
+              <Option value="3">3 วัน</Option>
+              <Option value="7">7 วัน</Option>
+              <Option value="14">14 วัน</Option>
+            </Select>
           )}
         </FormItem>
-        <FormItem {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">Record</Button>
+        <FormItem
+          {...tailFormItemLayout}
+        >
+          {getFieldDecorator('id')(
+            <Button type="primary" htmlType="submit">
+            {isUpdate ? 'Update' : 'Record'}
+            </Button>
+          )}
         </FormItem>
       </Form>
     );
   }
 }
 
-export default Form.create()(HomeworkForm);
+export default HomeworkForm;

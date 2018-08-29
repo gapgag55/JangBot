@@ -310,13 +310,10 @@ var Wrapper = function Wrapper(_ref) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_antd_lib_button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_antd_lib_button__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_antd_lib_input__ = __webpack_require__("antd/lib/input");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_antd_lib_input___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_antd_lib_input__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_antd_lib_select__ = __webpack_require__("antd/lib/select");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_antd_lib_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_antd_lib_select__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_antd_lib_form__ = __webpack_require__("antd/lib/form");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_antd_lib_form___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_antd_lib_form__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_react__);
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_antd_lib_form__ = __webpack_require__("antd/lib/form");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_antd_lib_form___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_antd_lib_form__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react__);
 
 
 
@@ -339,8 +336,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 
-var FormItem = __WEBPACK_IMPORTED_MODULE_3_antd_lib_form___default.a.Item;
-var Option = __WEBPACK_IMPORTED_MODULE_2_antd_lib_select___default.a.Option;
+var FormItem = __WEBPACK_IMPORTED_MODULE_2_antd_lib_form___default.a.Item;
 
 var HomeworkForm =
 /*#__PURE__*/
@@ -474,17 +470,17 @@ function (_Component) {
           }
         }
       };
-      return __WEBPACK_IMPORTED_MODULE_4_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_antd_lib_form___default.a, {
+      return __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_antd_lib_form___default.a, {
         onSubmit: this.handleSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 82
+          lineNumber: 81
         }
-      }, __WEBPACK_IMPORTED_MODULE_4_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
+      }, __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
         label: "Line Channel Access Token",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 82
         }
       }), getFieldDecorator('channelAccessToken', {
         rules: [{
@@ -494,16 +490,16 @@ function (_Component) {
           required: true,
           message: 'Please input your E-mail!'
         }]
-      })(__WEBPACK_IMPORTED_MODULE_4_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_antd_lib_input___default.a, {
+      })(__WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_antd_lib_input___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 94
+          lineNumber: 93
         }
-      }))), __WEBPACK_IMPORTED_MODULE_4_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
+      }))), __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
         label: "Group ID",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97
+          lineNumber: 96
         }
       }), getFieldDecorator('groupID', {
         rules: [{
@@ -513,31 +509,31 @@ function (_Component) {
           required: true,
           message: 'Please input your E-mail!'
         }]
-      })(__WEBPACK_IMPORTED_MODULE_4_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_antd_lib_input___default.a, {
+      })(__WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_antd_lib_input___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 108
+          lineNumber: 107
         }
-      }))), __WEBPACK_IMPORTED_MODULE_4_react___default.a.createElement(FormItem, _extends({}, tailFormItemLayout, {
+      }))), __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(FormItem, _extends({}, tailFormItemLayout, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 111
+          lineNumber: 110
         }
-      }), __WEBPACK_IMPORTED_MODULE_4_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_antd_lib_button___default.a, {
+      }), __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_antd_lib_button___default.a, {
         type: "primary",
         htmlType: "submit",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 112
+          lineNumber: 111
         }
       }, "Save")));
     }
   }]);
 
   return HomeworkForm;
-}(__WEBPACK_IMPORTED_MODULE_4_react__["Component"]);
+}(__WEBPACK_IMPORTED_MODULE_3_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_3_antd_lib_form___default.a.create()(HomeworkForm));
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_2_antd_lib_form___default.a.create()(HomeworkForm));
 
 /***/ }),
 
@@ -635,13 +631,6 @@ module.exports = require("antd/lib/layout");
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/menu");
-
-/***/ }),
-
-/***/ "antd/lib/select":
-/***/ (function(module, exports) {
-
-module.exports = require("antd/lib/select");
 
 /***/ }),
 
