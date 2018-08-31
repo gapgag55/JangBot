@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout } from 'antd';
-import Wrapper from '../components/Wrapper';
+import Wrapper from '../containers/Wrapper';
 import NotifyForm from '../containers/NotifyForm';
 
 const { Content } = Layout;

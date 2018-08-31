@@ -1,50 +1,27 @@
 import React, { Component } from 'react';
 import { Form, Input, DatePicker, TimePicker, Select, Button } from 'antd';
-import moment from 'moment';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
 
 class HomeworkForm extends Component {
-  onSubmit = (e) => {
-    e.preventDefault();
-    const { form, onSubmit, onUpdate, isUpdate } = this.props;
-
-    if (isUpdate)
-      return onUpdate(form);
-   return  onSubmit(form);
-  }
-
   render() {
-    const{ form, isUpdate } = this.props;
+    const{ form } = this.props;
     const { getFieldDecorator } = form;
 
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
-        sm: { span: 4 },
+        sm: { span: 7 },
       },
       wrapperCol: {
         xs: { span: 24 },
-        sm: { span: 10 },
-      },
-    };
-
-    const tailFormItemLayout = {
-      wrapperCol: {
-        xs: {
-          span: 2,
-          offset: 14,
-        },
-        sm: {
-          span: 2,
-          offset: 4,
-        },
+        sm: { span: 17 },
       },
     };
 
     return (
-      <Form onSubmit={this.onSubmit}>
+      <Form>
         <FormItem
           {...formItemLayout}
           label="ชื่อวิชา"
@@ -56,7 +33,15 @@ class HomeworkForm extends Component {
               required: true, message: 'Please input your E-mail!',
             }],
           })(
-            <Input />
+            <Select>
+              <Option value="Artificial Intelligence">Artificial Intelligence</Option>
+              <Option value="Business Writing">Business Writing</Option>
+              <Option value="Computer Networks">Computer Networks</Option>
+              <Option value="Information Storage and Retrieval">Information Storage and Retrieval</Option>
+              <Option value="Introduction to Software Engineering">Introduction to Software Engineering</Option>
+              <Option value="Management Information Systems">Management Information Systems</Option>
+              <Option value="Parallel and Distributed Systems">Parallel and Distributed Systems</Option>
+            </Select>
           )}
         </FormItem>
         <FormItem
@@ -111,7 +96,7 @@ class HomeworkForm extends Component {
         </FormItem>
         <FormItem
           {...formItemLayout}
-          label="แจ้งเตือนล่วงหน้า (วัน)"
+          label="แจ้งเตือนล่วงหน้า"
         >
           {getFieldDecorator('appointment', {
             rules: [{
@@ -119,6 +104,7 @@ class HomeworkForm extends Component {
             }],
           })(
             <Select>
+              <Option value="1">1 วัน</Option>
               <Option value="3">3 วัน</Option>
               <Option value="7">7 วัน</Option>
               <Option value="14">14 วัน</Option>
@@ -126,13 +112,10 @@ class HomeworkForm extends Component {
           )}
         </FormItem>
         <FormItem
-          {...tailFormItemLayout}
+          {...formItemLayout}
+          style={{ margin: 0 }}
         >
-          {getFieldDecorator('id')(
-            <Button type="primary" htmlType="submit">
-            {isUpdate ? 'Update' : 'Record'}
-            </Button>
-          )}
+          {getFieldDecorator('id')(<Input type="hidden" />)}
         </FormItem>
       </Form>
     );

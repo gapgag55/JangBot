@@ -28,19 +28,11 @@ const Sidebar = ({ router }) => (
           </a>
         </Link>
       </Menu.Item>
-      <Menu.Item key="/log">
-        <Link href="/log">
+      <Menu.Item key="/line">
+        <Link href="/line">
           <a>
-            <Icon type="code-o" />
-            <span>ระบบสถานะ</span>
-          </a>
-        </Link>
-      </Menu.Item>
-      <Menu.Item key="/settings">
-        <Link href="/settings">
-          <a>
-            <Icon type="setting" />
-            <span>การตั้งค่า</span>
+            <Icon type="meh-o" />
+            <span>Line</span>
           </a>
         </Link>
       </Menu.Item>

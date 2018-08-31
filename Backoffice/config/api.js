@@ -4,7 +4,8 @@ export default {
   url: {
     homework: `${url}/homework`,
     notification: `${url}/notification`,
-    settings: `${url}/settings`,
-    logging: `${url}/logging`
+    line: `${url}/line`,
+    login: `${url}/user/login`,
+    auth: `${url}/user/auth`,
   },
 };

@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -102,6 +102,9 @@ var Header = function Header() {
     }
   }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("a", {
     href: "javascript:;",
+    onClick: function onClick() {
+      window.localStorage.removeItem('token');
+    },
     __source: {
       fileName: _jsxFileName,
       lineNumber: 7
@@ -217,13 +220,13 @@ var Sidebar = function Sidebar(_ref) {
       lineNumber: 27
     }
   }, "\u0E23\u0E30\u0E1A\u0E1A\u0E41\u0E08\u0E49\u0E07\u0E02\u0E48\u0E32\u0E27\u0E2A\u0E32\u0E23")))), __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_antd_lib_menu___default.a.Item, {
-    key: "/log",
+    key: "/line",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 31
     }
   }, __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_next_link___default.a, {
-    href: "/log",
+    href: "/line",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 32
@@ -234,7 +237,7 @@ var Sidebar = function Sidebar(_ref) {
       lineNumber: 33
     }
   }, __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_antd_lib_icon___default.a, {
-    type: "code-o",
+    type: "meh-o",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 34
@@ -244,88 +247,10 @@ var Sidebar = function Sidebar(_ref) {
       fileName: _jsxFileName,
       lineNumber: 35
     }
-  }, "\u0E23\u0E30\u0E1A\u0E1A\u0E2A\u0E16\u0E32\u0E19\u0E30")))), __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_antd_lib_menu___default.a.Item, {
-    key: "/settings",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 39
-    }
-  }, __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_next_link___default.a, {
-    href: "/settings",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 40
-    }
-  }, __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 41
-    }
-  }, __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_antd_lib_icon___default.a, {
-    type: "setting",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 42
-    }
-  }), __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement("span", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 43
-    }
-  }, "\u0E01\u0E32\u0E23\u0E15\u0E31\u0E49\u0E07\u0E04\u0E48\u0E32"))))));
+  }, "Line"))))));
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_5_next_router__["withRouter"])(Sidebar));
-
-/***/ }),
-
-/***/ "./components/Wrapper.jsx":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_antd_lib_layout__ = __webpack_require__("antd/lib/layout");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_antd_lib_layout___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_antd_lib_layout__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Header__ = __webpack_require__("./components/Header.jsx");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Sidebar__ = __webpack_require__("./components/Sidebar.jsx");
-
-var _jsxFileName = "/Users/kopkap/Documents/work-with-knowledge/Jang/Backoffice/components/Wrapper.jsx";
-
-
-
-
-var Wrapper = function Wrapper(_ref) {
-  var children = _ref.children;
-  return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_antd_lib_layout___default.a, {
-    style: {
-      minHeight: '100vh',
-      width: '100vw',
-      overflow: 'hidden'
-    },
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 7
-    }
-  }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Sidebar__["a" /* default */], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 8
-    }
-  }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_antd_lib_layout___default.a, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9
-    }
-  }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Header__["a" /* default */], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10
-    }
-  }), children));
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (Wrapper);
 
 /***/ }),
 
@@ -338,8 +263,9 @@ var url = 'http://localhost:4000/api';
   url: {
     homework: "".concat(url, "/homework"),
     notification: "".concat(url, "/notification"),
-    settings: "".concat(url, "/settings"),
-    logging: "".concat(url, "/logging")
+    line: "".concat(url, "/line"),
+    login: "".concat(url, "/user/login"),
+    auth: "".concat(url, "/user/auth")
   }
 });
 
@@ -349,23 +275,18 @@ var url = 'http://localhost:4000/api';
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_antd_lib_button__ = __webpack_require__("antd/lib/button");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_antd_lib_button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_antd_lib_button__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_antd_lib_time_picker__ = __webpack_require__("antd/lib/time-picker");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_antd_lib_time_picker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_antd_lib_time_picker__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_antd_lib_date_picker__ = __webpack_require__("antd/lib/date-picker");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_antd_lib_date_picker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_antd_lib_date_picker__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_antd_lib_input__ = __webpack_require__("antd/lib/input");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_antd_lib_input___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_antd_lib_input__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_antd_lib_select__ = __webpack_require__("antd/lib/select");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_antd_lib_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_antd_lib_select__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_antd_lib_form__ = __webpack_require__("antd/lib/form");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_antd_lib_form___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_antd_lib_form__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment__ = __webpack_require__("moment");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_moment__);
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_antd_lib_time_picker__ = __webpack_require__("antd/lib/time-picker");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_antd_lib_time_picker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_antd_lib_time_picker__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_antd_lib_date_picker__ = __webpack_require__("antd/lib/date-picker");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_antd_lib_date_picker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_antd_lib_date_picker__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_antd_lib_input__ = __webpack_require__("antd/lib/input");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_antd_lib_input___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_antd_lib_input__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_antd_lib_select__ = __webpack_require__("antd/lib/select");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_antd_lib_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_antd_lib_select__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_antd_lib_form__ = __webpack_require__("antd/lib/form");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_antd_lib_form___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_antd_lib_form__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
 
 
 
@@ -385,14 +306,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 
-var FormItem = __WEBPACK_IMPORTED_MODULE_5_antd_lib_form___default.a.Item;
-var Option = __WEBPACK_IMPORTED_MODULE_4_antd_lib_select___default.a.Option;
+var FormItem = __WEBPACK_IMPORTED_MODULE_4_antd_lib_form___default.a.Item;
+var Option = __WEBPACK_IMPORTED_MODULE_3_antd_lib_select___default.a.Option;
 
 var HomeworkForm =
 /*#__PURE__*/
@@ -400,39 +320,15 @@ function (_Component) {
   _inherits(HomeworkForm, _Component);
 
   function HomeworkForm() {
-    var _ref;
-
-    var _temp, _this;
-
     _classCallCheck(this, HomeworkForm);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_ref = HomeworkForm.__proto__ || Object.getPrototypeOf(HomeworkForm)).call.apply(_ref, [this].concat(args))), Object.defineProperty(_assertThisInitialized(_this), "onSubmit", {
-      configurable: true,
-      enumerable: true,
-      writable: true,
-      value: function value(e) {
-        e.preventDefault();
-        var _this$props = _this.props,
-            form = _this$props.form,
-            onSubmit = _this$props.onSubmit,
-            onUpdate = _this$props.onUpdate,
-            isUpdate = _this$props.isUpdate;
-        if (isUpdate) return onUpdate(form);
-        return onSubmit(form);
-      }
-    }), _temp));
+    return _possibleConstructorReturn(this, (HomeworkForm.__proto__ || Object.getPrototypeOf(HomeworkForm)).apply(this, arguments));
   }
 
   _createClass(HomeworkForm, [{
     key: "render",
     value: function render() {
-      var _props = this.props,
-          form = _props.form,
-          isUpdate = _props.isUpdate;
+      var form = this.props.form;
       var getFieldDecorator = form.getFieldDecorator;
       var formItemLayout = {
         labelCol: {
@@ -440,7 +336,7 @@ function (_Component) {
             span: 24
           },
           sm: {
-            span: 4
+            span: 7
           }
         },
         wrapperCol: {
@@ -448,33 +344,20 @@ function (_Component) {
             span: 24
           },
           sm: {
-            span: 10
+            span: 17
           }
         }
       };
-      var tailFormItemLayout = {
-        wrapperCol: {
-          xs: {
-            span: 2,
-            offset: 14
-          },
-          sm: {
-            span: 2,
-            offset: 4
-          }
-        }
-      };
-      return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_antd_lib_form___default.a, {
-        onSubmit: this.onSubmit,
+      return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_antd_lib_form___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
+          lineNumber: 24
         }
-      }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
+      }, __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
         label: "\u0E0A\u0E37\u0E48\u0E2D\u0E27\u0E34\u0E0A\u0E32",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 48
+          lineNumber: 25
         }
       }), getFieldDecorator('subject', {
         rules: [{
@@ -483,66 +366,108 @@ function (_Component) {
           required: true,
           message: 'Please input your E-mail!'
         }]
-      })(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_antd_lib_input___default.a, {
+      })(__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_antd_lib_select___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 59
+          lineNumber: 36
         }
-      }))), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
+      }, __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(Option, {
+        value: "Artificial Intelligence",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37
+        }
+      }, "Artificial Intelligence"), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(Option, {
+        value: "Business Writing",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 38
+        }
+      }, "Business Writing"), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(Option, {
+        value: "Computer Networks",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 39
+        }
+      }, "Computer Networks"), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(Option, {
+        value: "Information Storage and Retrieval",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 40
+        }
+      }, "Information Storage and Retrieval"), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(Option, {
+        value: "Introduction to Software Engineering",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 41
+        }
+      }, "Introduction to Software Engineering"), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(Option, {
+        value: "Management Information Systems",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 42
+        }
+      }, "Management Information Systems"), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(Option, {
+        value: "Parallel and Distributed Systems",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 43
+        }
+      }, "Parallel and Distributed Systems")))), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
         label: "\u0E23\u0E32\u0E22\u0E25\u0E30\u0E40\u0E2D\u0E35\u0E22\u0E14",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 62
+          lineNumber: 47
         }
       }), getFieldDecorator('description', {
         rules: [{
           required: true,
           message: 'Please input description'
         }]
-      })(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_antd_lib_input___default.a, {
+      })(__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_antd_lib_input___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71
+          lineNumber: 56
         }
-      }))), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
+      }))), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
         label: "\u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 74
+          lineNumber: 59
         }
       }), getFieldDecorator('type', {
         rules: [{
           required: true,
           message: 'Please select your gender!'
         }]
-      })(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_antd_lib_select___default.a, {
+      })(__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_antd_lib_select___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 81
+          lineNumber: 66
         }
-      }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(Option, {
+      }, __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(Option, {
         value: "assignment",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 82
+          lineNumber: 67
         }
-      }, "Assignment"), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(Option, {
+      }, "Assignment"), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(Option, {
         value: "quiz",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 68
         }
-      }, "Quiz"), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(Option, {
+      }, "Quiz"), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(Option, {
         value: "project",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84
+          lineNumber: 69
         }
-      }, "Project")))), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
+      }, "Project")))), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
         label: "\u0E27\u0E31\u0E19\u0E01\u0E33\u0E2B\u0E19\u0E14\u0E2A\u0E48\u0E07",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 88
+          lineNumber: 73
         }
       }), getFieldDecorator('date', {
         rules: [{
@@ -550,16 +475,16 @@ function (_Component) {
           required: true,
           message: 'Please select time!'
         }]
-      })(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_antd_lib_date_picker___default.a, {
+      })(__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_antd_lib_date_picker___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97
+          lineNumber: 82
         }
-      }))), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
+      }))), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
         label: "\u0E40\u0E27\u0E25\u0E32\u0E01\u0E33\u0E2B\u0E19\u0E14\u0E2A\u0E48\u0E07",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 100
+          lineNumber: 85
         }
       }), getFieldDecorator('time', {
         rules: [{
@@ -567,69 +492,312 @@ function (_Component) {
           required: true,
           message: 'Please select time!'
         }]
-      })(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_antd_lib_time_picker___default.a, {
+      })(__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_antd_lib_time_picker___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 109
+          lineNumber: 94
         }
-      }))), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
-        label: "\u0E41\u0E08\u0E49\u0E07\u0E40\u0E15\u0E37\u0E2D\u0E19\u0E25\u0E48\u0E27\u0E07\u0E2B\u0E19\u0E49\u0E32 (\u0E27\u0E31\u0E19)",
+      }))), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
+        label: "\u0E41\u0E08\u0E49\u0E07\u0E40\u0E15\u0E37\u0E2D\u0E19\u0E25\u0E48\u0E27\u0E07\u0E2B\u0E19\u0E49\u0E32",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 112
+          lineNumber: 97
         }
       }), getFieldDecorator('appointment', {
         rules: [{
           required: true,
           message: 'Please input appointment'
         }]
-      })(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_antd_lib_select___default.a, {
+      })(__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_antd_lib_select___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 121
+          lineNumber: 106
         }
-      }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(Option, {
+      }, __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(Option, {
+        value: "1",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 107
+        }
+      }, "1 \u0E27\u0E31\u0E19"), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(Option, {
         value: "3",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 122
+          lineNumber: 108
         }
-      }, "3 \u0E27\u0E31\u0E19"), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(Option, {
+      }, "3 \u0E27\u0E31\u0E19"), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(Option, {
         value: "7",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 123
+          lineNumber: 109
         }
-      }, "7 \u0E27\u0E31\u0E19"), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(Option, {
+      }, "7 \u0E27\u0E31\u0E19"), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(Option, {
         value: "14",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 124
+          lineNumber: 110
         }
-      }, "14 \u0E27\u0E31\u0E19")))), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(FormItem, _extends({}, tailFormItemLayout, {
+      }, "14 \u0E27\u0E31\u0E19")))), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(FormItem, _extends({}, formItemLayout, {
+        style: {
+          margin: 0
+        },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 128
+          lineNumber: 114
         }
-      }), getFieldDecorator('id')(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_antd_lib_button___default.a, {
-        type: "primary",
-        htmlType: "submit",
+      }), getFieldDecorator('id')(__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_antd_lib_input___default.a, {
+        type: "hidden",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 132
+          lineNumber: 118
         }
-      }, isUpdate ? 'Update' : 'Record'))));
+      }))));
     }
   }]);
 
   return HomeworkForm;
-}(__WEBPACK_IMPORTED_MODULE_6_react__["Component"]);
+}(__WEBPACK_IMPORTED_MODULE_5_react__["Component"]);
 
 /* harmony default export */ __webpack_exports__["a"] = (HomeworkForm);
 
 /***/ }),
 
-/***/ "./containers/TableItems.jsx":
+/***/ "./containers/Login.jsx":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_antd_lib_button__ = __webpack_require__("antd/lib/button");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_antd_lib_button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_antd_lib_button__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_antd_lib_checkbox__ = __webpack_require__("antd/lib/checkbox");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_antd_lib_checkbox___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_antd_lib_checkbox__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_antd_lib_input__ = __webpack_require__("antd/lib/input");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_antd_lib_input___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_antd_lib_input__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_antd_lib_icon__ = __webpack_require__("antd/lib/icon");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_antd_lib_icon___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_antd_lib_icon__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__babel_runtime_regenerator__ = __webpack_require__("@babel/runtime/regenerator");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_antd_lib_form__ = __webpack_require__("antd/lib/form");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_antd_lib_form___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_antd_lib_form__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_styled_components__ = __webpack_require__("styled-components");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_styled_components__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utilities_request__ = __webpack_require__("./utilities/request.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__config_api__ = __webpack_require__("./config/api.js");
+
+
+
+
+
+
+var _jsxFileName = "/Users/kopkap/Documents/work-with-knowledge/Jang/Backoffice/containers/Login.jsx";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } } function _next(value) { step("next", value); } function _throw(err) { step("throw", err); } _next(); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+
+
+
+
+var FormItem = __WEBPACK_IMPORTED_MODULE_5_antd_lib_form___default.a.Item;
+var Wrapper = __WEBPACK_IMPORTED_MODULE_7_styled_components___default.a.div.withConfig({
+  displayName: "Login__Wrapper",
+  componentId: "s1l372fg-0"
+})(["display:flex;align-items:center;justify-content:center;width:100vw;height:100vh;"]);
+var FormWrapper = __WEBPACK_IMPORTED_MODULE_7_styled_components___default.a.div.withConfig({
+  displayName: "Login__FormWrapper",
+  componentId: "s1l372fg-1"
+})(["max-width:400px;"]);
+
+var Login =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Login, _Component);
+
+  function Login() {
+    var _ref;
+
+    var _temp, _this;
+
+    _classCallCheck(this, Login);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_ref = Login.__proto__ || Object.getPrototypeOf(Login)).call.apply(_ref, [this].concat(args))), Object.defineProperty(_assertThisInitialized(_this), "handleSubmit", {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: function value(e) {
+        e.preventDefault();
+
+        _this.props.form.validateFields(
+        /*#__PURE__*/
+        function () {
+          var _ref2 = _asyncToGenerator(
+          /*#__PURE__*/
+          __WEBPACK_IMPORTED_MODULE_4__babel_runtime_regenerator___default.a.mark(function _callee(err, values) {
+            var _ref3, statusCode, data;
+
+            return __WEBPACK_IMPORTED_MODULE_4__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    if (err) {
+                      _context.next = 8;
+                      break;
+                    }
+
+                    console.log('Received values of form: ', values);
+                    _context.next = 4;
+                    return __WEBPACK_IMPORTED_MODULE_8__utilities_request__["a" /* default */].post(__WEBPACK_IMPORTED_MODULE_9__config_api__["a" /* default */].url.login, values);
+
+                  case 4:
+                    _ref3 = _context.sent;
+                    statusCode = _ref3.statusCode;
+                    data = _ref3.data;
+
+                    if (statusCode == 200) {
+                      window.localStorage.setItem('token', data.token);
+                    }
+
+                  case 8:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee, this);
+          }));
+
+          return function (_x, _x2) {
+            return _ref2.apply(this, arguments);
+          };
+        }());
+      }
+    }), _temp));
+  }
+
+  _createClass(Login, [{
+    key: "render",
+    value: function render() {
+      var getFieldDecorator = this.props.form.getFieldDecorator;
+      return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(Wrapper, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 39
+        }
+      }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(FormWrapper, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 40
+        }
+      }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_antd_lib_form___default.a, {
+        onSubmit: this.handleSubmit,
+        className: "login-form",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 41
+        }
+      }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(FormItem, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 42
+        }
+      }, getFieldDecorator('username', {
+        rules: [{
+          required: true,
+          message: 'Please input your username!'
+        }]
+      })(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_antd_lib_input___default.a, {
+        prefix: __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_antd_lib_icon___default.a, {
+          type: "user",
+          style: {
+            color: 'rgba(0,0,0,.25)'
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 46
+          }
+        }),
+        placeholder: "Username",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 46
+        }
+      }))), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(FormItem, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 49
+        }
+      }, getFieldDecorator('password', {
+        rules: [{
+          required: true,
+          message: 'Please input your Password!'
+        }]
+      })(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_antd_lib_input___default.a, {
+        prefix: __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_antd_lib_icon___default.a, {
+          type: "lock",
+          style: {
+            color: 'rgba(0,0,0,.25)'
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 53
+          }
+        }),
+        type: "password",
+        placeholder: "Password",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 53
+        }
+      }))), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(FormItem, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 56
+        }
+      }, getFieldDecorator('remember', {
+        valuePropName: 'checked',
+        initialValue: true
+      })(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_antd_lib_checkbox___default.a, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 61
+        }
+      }, "Remember me")), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_antd_lib_button___default.a, {
+        type: "primary",
+        htmlType: "submit",
+        className: "login-form-button",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 63
+        }
+      }, "Log in")))));
+    }
+  }]);
+
+  return Login;
+}(__WEBPACK_IMPORTED_MODULE_6_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_5_antd_lib_form___default.a.create()(Login));
+
+/***/ }),
+
+/***/ "./containers/TableHomework.jsx":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -646,7 +814,7 @@ function (_Component) {
 
 
 
-var _jsxFileName = "/Users/kopkap/Documents/work-with-knowledge/Jang/Backoffice/containers/TableItems.jsx";
+var _jsxFileName = "/Users/kopkap/Documents/work-with-knowledge/Jang/Backoffice/containers/TableHomework.jsx";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -665,23 +833,23 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
-var TableItems =
+var TableHomework =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(TableItems, _Component);
+  _inherits(TableHomework, _Component);
 
-  function TableItems() {
+  function TableHomework() {
     var _ref;
 
     var _temp, _this;
 
-    _classCallCheck(this, TableItems);
+    _classCallCheck(this, TableHomework);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_ref = TableItems.__proto__ || Object.getPrototypeOf(TableItems)).call.apply(_ref, [this].concat(args))), Object.defineProperty(_assertThisInitialized(_this), "columns", {
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_ref = TableHomework.__proto__ || Object.getPrototypeOf(TableHomework)).call.apply(_ref, [this].concat(args))), Object.defineProperty(_assertThisInitialized(_this), "columns", {
       configurable: true,
       enumerable: true,
       writable: true,
@@ -730,7 +898,7 @@ function (_Component) {
           dataIndex: 'appointment',
           key: 'appointment'
         }, {
-          title: 'การกระทำ',
+          title: '#',
           key: 'action',
           render: function render(record) {
             return __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement("span", {
@@ -769,7 +937,7 @@ function (_Component) {
     }), _temp));
   }
 
-  _createClass(TableItems, [{
+  _createClass(TableHomework, [{
     key: "render",
     value: function render() {
       var _props = this.props,
@@ -792,10 +960,124 @@ function (_Component) {
     }
   }]);
 
-  return TableItems;
+  return TableHomework;
 }(__WEBPACK_IMPORTED_MODULE_3_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (TableItems);
+/* harmony default export */ __webpack_exports__["a"] = (TableHomework);
+
+/***/ }),
+
+/***/ "./containers/Wrapper.jsx":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_antd_lib_layout__ = __webpack_require__("antd/lib/layout");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_antd_lib_layout___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_antd_lib_layout__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Header__ = __webpack_require__("./components/Header.jsx");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Sidebar__ = __webpack_require__("./components/Sidebar.jsx");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Login__ = __webpack_require__("./containers/Login.jsx");
+
+var _jsxFileName = "/Users/kopkap/Documents/work-with-knowledge/Jang/Backoffice/containers/Wrapper.jsx";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+
+
+
+
+
+var Wrapper =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Wrapper, _Component);
+
+  function Wrapper() {
+    var _ref;
+
+    var _temp, _this;
+
+    _classCallCheck(this, Wrapper);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_ref = Wrapper.__proto__ || Object.getPrototypeOf(Wrapper)).call.apply(_ref, [this].concat(args))), Object.defineProperty(_assertThisInitialized(_this), "state", {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: {
+        isLogin: true
+      }
+    }), _temp));
+  }
+
+  _createClass(Wrapper, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var token = window.localStorage.getItem('token');
+      if (token) this.setState({
+        isLogin: true
+      }); // check auth
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var children = this.props.children;
+      var isLogin = this.state.isLogin;
+      if (!isLogin) return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Login__["a" /* default */], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25
+        }
+      });
+      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_antd_lib_layout___default.a, {
+        style: {
+          minHeight: '100vh',
+          width: '100vw',
+          overflow: 'hidden'
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28
+        }
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_Sidebar__["a" /* default */], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29
+        }
+      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_antd_lib_layout___default.a, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 30
+        }
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_Header__["a" /* default */], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 31
+        }
+      }), children));
+    }
+  }]);
+
+  return Wrapper;
+}(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (Wrapper);
 
 /***/ }),
 
@@ -806,21 +1088,27 @@ function (_Component) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_antd_lib_form__ = __webpack_require__("antd/lib/form");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_antd_lib_form___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_antd_lib_form__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__babel_runtime_regenerator__ = __webpack_require__("@babel/runtime/regenerator");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_antd_lib_notification__ = __webpack_require__("antd/lib/notification");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_antd_lib_notification___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_antd_lib_notification__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_antd_lib_layout__ = __webpack_require__("antd/lib/layout");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_antd_lib_layout___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_antd_lib_layout__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__("moment");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Wrapper__ = __webpack_require__("./components/Wrapper.jsx");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__containers_HomeworkForm__ = __webpack_require__("./containers/HomeworkForm.jsx");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__containers_TableItems__ = __webpack_require__("./containers/TableItems.jsx");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__utilities_request__ = __webpack_require__("./utilities/request.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__config_api__ = __webpack_require__("./config/api.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_antd_lib_modal__ = __webpack_require__("antd/lib/modal");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_antd_lib_modal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_antd_lib_modal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_antd_lib_button__ = __webpack_require__("antd/lib/button");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_antd_lib_button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_antd_lib_button__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_antd_lib_notification__ = __webpack_require__("antd/lib/notification");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_antd_lib_notification___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_antd_lib_notification__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__babel_runtime_regenerator__ = __webpack_require__("@babel/runtime/regenerator");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_antd_lib_layout__ = __webpack_require__("antd/lib/layout");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_antd_lib_layout___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_antd_lib_layout__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment__ = __webpack_require__("moment");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__containers_Wrapper__ = __webpack_require__("./containers/Wrapper.jsx");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__containers_HomeworkForm__ = __webpack_require__("./containers/HomeworkForm.jsx");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__containers_TableHomework__ = __webpack_require__("./containers/TableHomework.jsx");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__utilities_request__ = __webpack_require__("./utilities/request.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__config_api__ = __webpack_require__("./config/api.js");
+
+
 
 
 
@@ -854,7 +1142,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
-var Content = __WEBPACK_IMPORTED_MODULE_3_antd_lib_layout___default.a.Content;
+var Content = __WEBPACK_IMPORTED_MODULE_5_antd_lib_layout___default.a.Content;
 
 var Home =
 /*#__PURE__*/
@@ -879,120 +1167,8 @@ function (_Component) {
       value: {
         isLoading: true,
         isUpdate: false,
+        isModal: false,
         data: []
-      }
-    }), Object.defineProperty(_assertThisInitialized(_this), "addHomework", {
-      configurable: true,
-      enumerable: true,
-      writable: true,
-      value: function value() {
-        var form = _this.props.form;
-
-        var self = _assertThisInitialized(_this);
-
-        form.validateFieldsAndScroll(
-        /*#__PURE__*/
-        function () {
-          var _ref2 = _asyncToGenerator(
-          /*#__PURE__*/
-          __WEBPACK_IMPORTED_MODULE_1__babel_runtime_regenerator___default.a.mark(function _callee(err, values) {
-            var _ref3, statusCode, message;
-
-            return __WEBPACK_IMPORTED_MODULE_1__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-              while (1) {
-                switch (_context.prev = _context.next) {
-                  case 0:
-                    form.resetFields();
-
-                    if (err) {
-                      _context.next = 9;
-                      break;
-                    }
-
-                    _context.next = 4;
-                    return __WEBPACK_IMPORTED_MODULE_9__utilities_request__["a" /* default */].post(__WEBPACK_IMPORTED_MODULE_10__config_api__["a" /* default */].url.homework, values);
-
-                  case 4:
-                    _ref3 = _context.sent;
-                    statusCode = _ref3.statusCode;
-                    message = statusCode == 200 ? 'Send Message: Success' : 'Send Message: Fail';
-
-                    __WEBPACK_IMPORTED_MODULE_2_antd_lib_notification___default.a.open({
-                      message: message
-                    });
-
-                    self.getHomework();
-
-                  case 9:
-                  case "end":
-                    return _context.stop();
-                }
-              }
-            }, _callee, this);
-          }));
-
-          return function (_x, _x2) {
-            return _ref2.apply(this, arguments);
-          };
-        }());
-      }
-    }), Object.defineProperty(_assertThisInitialized(_this), "updateHomework", {
-      configurable: true,
-      enumerable: true,
-      writable: true,
-      value: function value() {
-        var form = _this.props.form;
-
-        var self = _assertThisInitialized(_this);
-
-        form.validateFieldsAndScroll(
-        /*#__PURE__*/
-        function () {
-          var _ref4 = _asyncToGenerator(
-          /*#__PURE__*/
-          __WEBPACK_IMPORTED_MODULE_1__babel_runtime_regenerator___default.a.mark(function _callee2(err, values) {
-            var _ref5, statusCode, message;
-
-            return __WEBPACK_IMPORTED_MODULE_1__babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
-              while (1) {
-                switch (_context2.prev = _context2.next) {
-                  case 0:
-                    form.resetFields();
-                    self.setState({
-                      isUpdate: false
-                    });
-
-                    if (err) {
-                      _context2.next = 10;
-                      break;
-                    }
-
-                    _context2.next = 5;
-                    return __WEBPACK_IMPORTED_MODULE_9__utilities_request__["a" /* default */].update(__WEBPACK_IMPORTED_MODULE_10__config_api__["a" /* default */].url.homework, values.id, values);
-
-                  case 5:
-                    _ref5 = _context2.sent;
-                    statusCode = _ref5.statusCode;
-                    message = statusCode == 200 ? 'Send Message: Success' : 'Send Message: Fail';
-
-                    __WEBPACK_IMPORTED_MODULE_2_antd_lib_notification___default.a.open({
-                      message: message
-                    });
-
-                    self.getHomework();
-
-                  case 10:
-                  case "end":
-                    return _context2.stop();
-                }
-              }
-            }, _callee2, this);
-          }));
-
-          return function (_x3, _x4) {
-            return _ref4.apply(this, arguments);
-          };
-        }());
       }
     }), Object.defineProperty(_assertThisInitialized(_this), "getHomework", {
       configurable: true,
@@ -1001,24 +1177,25 @@ function (_Component) {
       value: function () {
         var _value = _asyncToGenerator(
         /*#__PURE__*/
-        __WEBPACK_IMPORTED_MODULE_1__babel_runtime_regenerator___default.a.mark(function _callee3() {
-          var _ref6, statusCode, data, convertedData;
+        __WEBPACK_IMPORTED_MODULE_4__babel_runtime_regenerator___default.a.mark(function _callee() {
+          var _ref2, statusCode, data, convertedData;
 
-          return __WEBPACK_IMPORTED_MODULE_1__babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+          return __WEBPACK_IMPORTED_MODULE_4__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
             while (1) {
-              switch (_context3.prev = _context3.next) {
+              switch (_context.prev = _context.next) {
                 case 0:
                   _this.setState({
-                    isLoading: true
+                    isLoading: true,
+                    isModal: false
                   });
 
-                  _context3.next = 3;
-                  return __WEBPACK_IMPORTED_MODULE_9__utilities_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_10__config_api__["a" /* default */].url.homework);
+                  _context.next = 3;
+                  return __WEBPACK_IMPORTED_MODULE_11__utilities_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_12__config_api__["a" /* default */].url.homework);
 
                 case 3:
-                  _ref6 = _context3.sent;
-                  statusCode = _ref6.statusCode;
-                  data = _ref6.data;
+                  _ref2 = _context.sent;
+                  statusCode = _ref2.statusCode;
+                  data = _ref2.data;
 
                   if (statusCode) {
                     convertedData = data.map(function (item, key) {
@@ -1036,45 +1213,158 @@ function (_Component) {
 
                 case 7:
                 case "end":
-                  return _context3.stop();
+                  return _context.stop();
               }
             }
-          }, _callee3, this);
+          }, _callee, this);
         }));
 
         return function value() {
           return _value.apply(this, arguments);
         };
       }()
-    }), Object.defineProperty(_assertThisInitialized(_this), "onEdit", {
+    }), Object.defineProperty(_assertThisInitialized(_this), "addHomework", {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: function value() {
+        var form = _this.props.form;
+
+        var self = _assertThisInitialized(_this);
+
+        form.validateFieldsAndScroll(
+        /*#__PURE__*/
+        function () {
+          var _ref3 = _asyncToGenerator(
+          /*#__PURE__*/
+          __WEBPACK_IMPORTED_MODULE_4__babel_runtime_regenerator___default.a.mark(function _callee2(err, values) {
+            var _ref4, statusCode, message;
+
+            return __WEBPACK_IMPORTED_MODULE_4__babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    form.resetFields();
+
+                    if (err) {
+                      _context2.next = 9;
+                      break;
+                    }
+
+                    _context2.next = 4;
+                    return __WEBPACK_IMPORTED_MODULE_11__utilities_request__["a" /* default */].post(__WEBPACK_IMPORTED_MODULE_12__config_api__["a" /* default */].url.homework, values);
+
+                  case 4:
+                    _ref4 = _context2.sent;
+                    statusCode = _ref4.statusCode;
+                    message = statusCode == 200 ? 'Send Message: Success' : 'Send Message: Fail';
+
+                    __WEBPACK_IMPORTED_MODULE_3_antd_lib_notification___default.a.open({
+                      message: message
+                    });
+
+                    self.getHomework();
+
+                  case 9:
+                  case "end":
+                    return _context2.stop();
+                }
+              }
+            }, _callee2, this);
+          }));
+
+          return function (_x, _x2) {
+            return _ref3.apply(this, arguments);
+          };
+        }());
+      }
+    }), Object.defineProperty(_assertThisInitialized(_this), "updateHomework", {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: function value() {
+        var form = _this.props.form;
+
+        var self = _assertThisInitialized(_this);
+
+        form.validateFieldsAndScroll(
+        /*#__PURE__*/
+        function () {
+          var _ref5 = _asyncToGenerator(
+          /*#__PURE__*/
+          __WEBPACK_IMPORTED_MODULE_4__babel_runtime_regenerator___default.a.mark(function _callee3(err, values) {
+            var _ref6, statusCode, message;
+
+            return __WEBPACK_IMPORTED_MODULE_4__babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+              while (1) {
+                switch (_context3.prev = _context3.next) {
+                  case 0:
+                    form.resetFields();
+                    self.setState({
+                      isUpdate: false
+                    });
+
+                    if (err) {
+                      _context3.next = 10;
+                      break;
+                    }
+
+                    _context3.next = 5;
+                    return __WEBPACK_IMPORTED_MODULE_11__utilities_request__["a" /* default */].update(__WEBPACK_IMPORTED_MODULE_12__config_api__["a" /* default */].url.homework, values.id, values);
+
+                  case 5:
+                    _ref6 = _context3.sent;
+                    statusCode = _ref6.statusCode;
+                    message = statusCode == 200 ? 'Send Message: Success' : 'Send Message: Fail';
+
+                    __WEBPACK_IMPORTED_MODULE_3_antd_lib_notification___default.a.open({
+                      message: message
+                    });
+
+                    self.getHomework();
+
+                  case 10:
+                  case "end":
+                    return _context3.stop();
+                }
+              }
+            }, _callee3, this);
+          }));
+
+          return function (_x3, _x4) {
+            return _ref5.apply(this, arguments);
+          };
+        }());
+      }
+    }), Object.defineProperty(_assertThisInitialized(_this), "deleteHomework", {
       configurable: true,
       enumerable: true,
       writable: true,
       value: function () {
         var _value2 = _asyncToGenerator(
         /*#__PURE__*/
-        __WEBPACK_IMPORTED_MODULE_1__babel_runtime_regenerator___default.a.mark(function _callee4(data) {
-          var form;
-          return __WEBPACK_IMPORTED_MODULE_1__babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+        __WEBPACK_IMPORTED_MODULE_4__babel_runtime_regenerator___default.a.mark(function _callee4(id) {
+          var _ref7, statusCode, message;
+
+          return __WEBPACK_IMPORTED_MODULE_4__babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
             while (1) {
               switch (_context4.prev = _context4.next) {
                 case 0:
-                  form = _this.props.form;
-                  form.setFieldsValue({
-                    id: data._id,
-                    subject: data.subject,
-                    description: data.description,
-                    type: data.type,
-                    date: __WEBPACK_IMPORTED_MODULE_5_moment___default()(data.date),
-                    time: __WEBPACK_IMPORTED_MODULE_5_moment___default()(data.time),
-                    appointment: data.appointment
+                  _context4.next = 2;
+                  return __WEBPACK_IMPORTED_MODULE_11__utilities_request__["a" /* default */].remove(__WEBPACK_IMPORTED_MODULE_12__config_api__["a" /* default */].url.homework, id);
+
+                case 2:
+                  _ref7 = _context4.sent;
+                  statusCode = _ref7.statusCode;
+                  message = statusCode == 200 ? 'Send Message: Success' : 'Send Message: Fail';
+
+                  __WEBPACK_IMPORTED_MODULE_3_antd_lib_notification___default.a.open({
+                    message: message
                   });
 
-                  _this.setState({
-                    isUpdate: true
-                  });
+                  _this.getHomework();
 
-                case 3:
+                case 7:
                 case "end":
                   return _context4.stop();
               }
@@ -1086,35 +1376,64 @@ function (_Component) {
           return _value2.apply(this, arguments);
         };
       }()
-    }), Object.defineProperty(_assertThisInitialized(_this), "deleteHomework", {
+    }), Object.defineProperty(_assertThisInitialized(_this), "triggerModal", {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: function value() {
+        var form = _this.props.form;
+        var _this$state = _this.state,
+            isModal = _this$state.isModal,
+            isUpdate = _this$state.isUpdate;
+
+        _this.setState({
+          isModal: !isModal
+        }); // Prevent Modal Animation
+
+
+        setTimeout(function () {
+          if (isUpdate) {
+            _this.setState({
+              isUpdate: false
+            });
+
+            form.resetFields();
+          }
+        }, 200);
+      }
+    }), Object.defineProperty(_assertThisInitialized(_this), "handleEdit", {
       configurable: true,
       enumerable: true,
       writable: true,
       value: function () {
         var _value3 = _asyncToGenerator(
         /*#__PURE__*/
-        __WEBPACK_IMPORTED_MODULE_1__babel_runtime_regenerator___default.a.mark(function _callee5(id) {
-          var _ref7, statusCode, message;
-
-          return __WEBPACK_IMPORTED_MODULE_1__babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+        __WEBPACK_IMPORTED_MODULE_4__babel_runtime_regenerator___default.a.mark(function _callee5(data) {
+          var form;
+          return __WEBPACK_IMPORTED_MODULE_4__babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
             while (1) {
               switch (_context5.prev = _context5.next) {
                 case 0:
-                  _context5.next = 2;
-                  return __WEBPACK_IMPORTED_MODULE_9__utilities_request__["a" /* default */].remove(__WEBPACK_IMPORTED_MODULE_10__config_api__["a" /* default */].url.homework, id);
+                  form = _this.props.form;
 
-                case 2:
-                  _ref7 = _context5.sent;
-                  statusCode = _ref7.statusCode;
-                  message = statusCode == 200 ? 'Send Message: Success' : 'Send Message: Fail';
-
-                  __WEBPACK_IMPORTED_MODULE_2_antd_lib_notification___default.a.open({
-                    message: message
+                  _this.setState({
+                    isUpdate: true,
+                    isModal: true
+                  }, function () {
+                    setTimeout(function () {
+                      form.setFieldsValue({
+                        id: data._id,
+                        subject: data.subject,
+                        description: data.description,
+                        type: data.type,
+                        date: __WEBPACK_IMPORTED_MODULE_7_moment___default()(data.date),
+                        time: __WEBPACK_IMPORTED_MODULE_7_moment___default()(data.time),
+                        appointment: data.appointment
+                      });
+                    }, 150);
                   });
 
-                  _this.getHomework();
-
-                case 7:
+                case 2:
                 case "end":
                   return _context5.stop();
               }
@@ -1126,6 +1445,15 @@ function (_Component) {
           return _value3.apply(this, arguments);
         };
       }()
+    }), Object.defineProperty(_assertThisInitialized(_this), "handleOk", {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: function value() {
+        var isUpdate = _this.state.isUpdate;
+        if (isUpdate) return _this.updateHomework();
+        return _this.addHomework();
+      }
     }), _temp));
   }
 
@@ -1141,55 +1469,76 @@ function (_Component) {
       var _state = this.state,
           data = _state.data,
           isLoading = _state.isLoading,
-          isUpdate = _state.isUpdate;
-      return __WEBPACK_IMPORTED_MODULE_4_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__components_Wrapper__["a" /* default */], {
+          isUpdate = _state.isUpdate,
+          isModal = _state.isModal;
+      return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__containers_Wrapper__["a" /* default */], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 118
+          lineNumber: 152
         }
-      }, __WEBPACK_IMPORTED_MODULE_4_react___default.a.createElement(Content, {
+      }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(Content, {
         style: {
           margin: '24px 16px',
           padding: 24,
           background: '#fff',
-          minHeight: 280
+          minHeight: 280,
+          textAlign: 'right'
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 119
+          lineNumber: 153
         }
-      }, __WEBPACK_IMPORTED_MODULE_4_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_antd_lib_layout___default.a, {
+      }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_antd_lib_button___default.a, {
+        type: "primary",
+        size: "large",
+        onClick: this.triggerModal,
+        style: {
+          marginBottom: 20
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 160
+        }
+      }, "\u0E40\u0E1E\u0E34\u0E48\u0E21\u0E01\u0E32\u0E23\u0E1A\u0E49\u0E32\u0E19"), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_antd_lib_modal___default.a, {
+        title: "\u0E40\u0E1E\u0E34\u0E48\u0E21\u0E01\u0E32\u0E23\u0E1A\u0E49\u0E32\u0E19",
+        visible: isModal,
+        onOk: this.handleOk,
+        onCancel: this.triggerModal,
+        okText: isUpdate ? 'อัปเดต' : 'เพิ่ม',
+        cancelText: "\u0E22\u0E01\u0E40\u0E25\u0E34\u0E01",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 166
+        }
+      }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__containers_HomeworkForm__["a" /* default */], {
+        form: form,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 174
+        }
+      })), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_antd_lib_layout___default.a, {
         style: {
           background: '#fff'
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 120
+          lineNumber: 178
         }
-      }, __WEBPACK_IMPORTED_MODULE_4_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__containers_HomeworkForm__["a" /* default */], {
-        form: form,
-        onSubmit: this.addHomework,
-        onUpdate: this.updateHomework,
-        isUpdate: isUpdate,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 121
-        }
-      }), __WEBPACK_IMPORTED_MODULE_4_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__containers_TableItems__["a" /* default */], {
+      }, __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_10__containers_TableHomework__["a" /* default */], {
         isLoading: isLoading,
         data: data,
-        onEdit: this.onEdit,
+        onEdit: this.handleEdit,
         onDelete: this.deleteHomework,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 127
+          lineNumber: 179
         }
       }))));
     }
   }]);
 
   return Home;
-}(__WEBPACK_IMPORTED_MODULE_4_react__["Component"]);
+}(__WEBPACK_IMPORTED_MODULE_6_react__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0_antd_lib_form___default.a.create()(Home));
 
@@ -1392,7 +1741,7 @@ function () {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/index.js");
@@ -1411,6 +1760,13 @@ module.exports = require("@babel/runtime/regenerator");
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/button");
+
+/***/ }),
+
+/***/ "antd/lib/checkbox":
+/***/ (function(module, exports) {
+
+module.exports = require("antd/lib/checkbox");
 
 /***/ }),
 
@@ -1460,6 +1816,13 @@ module.exports = require("antd/lib/layout");
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/menu");
+
+/***/ }),
+
+/***/ "antd/lib/modal":
+/***/ (function(module, exports) {
+
+module.exports = require("antd/lib/modal");
 
 /***/ }),
 
@@ -1530,6 +1893,13 @@ module.exports = require("next/router");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "styled-components":
+/***/ (function(module, exports) {
+
+module.exports = require("styled-components");
 
 /***/ })
 

@@ -1,8 +1,7 @@
 import mongoose from 'mongoose';
-import config from '../config/database';
 
 export default () => {
-  mongoose.connect(config.mongoURL)
+  mongoose.connect(process.env.MONGO_DB)
   .then(
     () => {
       console.log('Connect to Mongoose successfully.');
